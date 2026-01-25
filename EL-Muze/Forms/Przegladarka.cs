@@ -6,20 +6,40 @@ namespace EL_Muze.Forms
     public partial class Przegladarka : Form
     {
         int id_zabytku;
+        private bool _pokazArchiwalne;
 
-        public Przegladarka()
+        public Przegladarka(bool czyArchiwalne)
         {
             InitializeComponent();
+            _pokazArchiwalne = czyArchiwalne;
+            if (_pokazArchiwalne)
+            {
+                this.Text = "Przeglądarka - Archiwum (Zmodyfikowane)";
+                button_modyfikuj.Enabled = false;
+                button_usun.Enabled = false;
+                button_dodaj.Enabled = false;
+            }
         }
 
         private void Przegladarka_Load(object sender, EventArgs e)
         {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'zabytkiDataSet.zabytki' . Możesz go przenieść lub usunąć.
+            this.zabytkiTableAdapter.Fill(this.zabytkiDataSet.zabytki);
             odswiezDane();
         }
 
         private void odswiezDane()
         {
-            this.zabytkiTableAdapter.Fill(this.centrala_muzeumDataSet.zabytki);
+            this.zabytkiTableAdapter.Fill(this.zabytkiDataSet.zabytki);
+
+            if (_pokazArchiwalne)
+            {
+                zabytkiBindingSource.Filter = "modyfikowano = true";
+            }
+            else
+            {
+                zabytkiBindingSource.Filter = "modyfikowano = false OR modyfikowano IS NULL";
+            }
         }
 
         private void button_dodaj_Click(object sender, EventArgs e)
@@ -55,7 +75,7 @@ namespace EL_Muze.Forms
                         zabytkiBindingSource.RemoveCurrent();
 
                         zabytkiBindingSource.EndEdit();
-                        tableAdapterManager.UpdateAll(this.centrala_muzeumDataSet);
+                        tableAdapterManager.UpdateAll(this.zabytkiDataSet);
 
                         odswiezDane();
                     }
@@ -82,7 +102,26 @@ namespace EL_Muze.Forms
         {
             this.Validate();
             this.zabytkiBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.centrala_muzeumDataSet);
+            this.tableAdapterManager.UpdateAll(this.zabytkiDataSet);
+        }
+
+        private void button_szukaj_Click(object sender, EventArgs e)
+        {
+            Form wyszukanie = new Forms.WyszukiwanieZabytkow();
+            wyszukanie.ShowDialog();
+        }
+
+        private void button_archiwum_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void zabytkiBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.zabytkiBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.zabytkiDataSet);
+
         }
     }
 }

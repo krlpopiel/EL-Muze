@@ -24,7 +24,7 @@ namespace EL_Muze
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form przegladarka = new Forms.Przegladarka();
+            Form przegladarka = new Forms.Przegladarka(false);
             przegladarka.Show();
         }
     }
