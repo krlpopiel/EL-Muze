@@ -42,17 +42,17 @@
             this.zabytkiTableAdapter = new EL_Muze.zabytkiDataSetTableAdapters.zabytkiTableAdapter();
             this.tableAdapterManager = new EL_Muze.zabytkiDataSetTableAdapters.TableAdapterManager();
             this.zabytkiBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.zabytkiBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.zabytkiDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +75,7 @@
             this.button_dodaj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_dodaj.BackColor = System.Drawing.Color.Lime;
             this.button_dodaj.Location = new System.Drawing.Point(29, 280);
-            this.button_dodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_dodaj.Margin = new System.Windows.Forms.Padding(2);
             this.button_dodaj.Name = "button_dodaj";
             this.button_dodaj.Size = new System.Drawing.Size(139, 70);
             this.button_dodaj.TabIndex = 2;
@@ -88,7 +88,7 @@
             this.button_modyfikuj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_modyfikuj.BackColor = System.Drawing.Color.Yellow;
             this.button_modyfikuj.Location = new System.Drawing.Point(196, 280);
-            this.button_modyfikuj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_modyfikuj.Margin = new System.Windows.Forms.Padding(2);
             this.button_modyfikuj.Name = "button_modyfikuj";
             this.button_modyfikuj.Size = new System.Drawing.Size(139, 70);
             this.button_modyfikuj.TabIndex = 3;
@@ -101,7 +101,7 @@
             this.button_usun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_usun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button_usun.Location = new System.Drawing.Point(354, 280);
-            this.button_usun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_usun.Margin = new System.Windows.Forms.Padding(2);
             this.button_usun.Name = "button_usun";
             this.button_usun.Size = new System.Drawing.Size(130, 70);
             this.button_usun.TabIndex = 4;
@@ -115,11 +115,11 @@
             this.button_wyjscie.BackColor = System.Drawing.Color.Red;
             this.button_wyjscie.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button_wyjscie.Location = new System.Drawing.Point(1087, 277);
-            this.button_wyjscie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_wyjscie.Margin = new System.Windows.Forms.Padding(2);
             this.button_wyjscie.Name = "button_wyjscie";
             this.button_wyjscie.Size = new System.Drawing.Size(135, 70);
             this.button_wyjscie.TabIndex = 5;
-            this.button_wyjscie.Text = "Wyjscie";
+            this.button_wyjscie.Text = "Wyjście";
             this.button_wyjscie.UseVisualStyleBackColor = false;
             this.button_wyjscie.Click += new System.EventHandler(this.button_wyjscie_Click);
             // 
@@ -128,7 +128,7 @@
             this.button_pokaz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_pokaz.BackColor = System.Drawing.Color.Cyan;
             this.button_pokaz.Location = new System.Drawing.Point(502, 280);
-            this.button_pokaz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_pokaz.Margin = new System.Windows.Forms.Padding(2);
             this.button_pokaz.Name = "button_pokaz";
             this.button_pokaz.Size = new System.Drawing.Size(141, 70);
             this.button_pokaz.TabIndex = 6;
@@ -210,6 +210,31 @@
             this.zabytkiBindingNavigator.TabIndex = 9;
             this.zabytkiBindingNavigator.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorCountItem.Text = "z {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Suma elementów";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Usuń";
+            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -237,22 +262,16 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Pozycja";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Bieżąca pozycja";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(29, 15);
-            this.bindingNavigatorCountItem.Text = "z {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Suma elementów";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -260,7 +279,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Przenieś następny";
             // 
             // bindingNavigatorMoveLastItem
@@ -269,38 +288,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Przenieś ostatni";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
-            this.bindingNavigatorDeleteItem.Text = "Usuń";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // zabytkiBindingNavigatorSaveItem
             // 
             this.zabytkiBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.zabytkiBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("zabytkiBindingNavigatorSaveItem.Image")));
             this.zabytkiBindingNavigatorSaveItem.Name = "zabytkiBindingNavigatorSaveItem";
-            this.zabytkiBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.zabytkiBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.zabytkiBindingNavigatorSaveItem.Text = "Zapisz dane";
             this.zabytkiBindingNavigatorSaveItem.Click += new System.EventHandler(this.zabytkiBindingNavigatorSaveItem_Click_1);
             // 
@@ -400,7 +401,7 @@
             this.Controls.Add(this.button_usun);
             this.Controls.Add(this.button_modyfikuj);
             this.Controls.Add(this.button_dodaj);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Przegladarka";
             this.Text = "Przeglądarka";
             this.Load += new System.EventHandler(this.Przegladarka_Load);
