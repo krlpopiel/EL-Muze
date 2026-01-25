@@ -113,8 +113,20 @@ namespace EL_Muze.Forms
 
         private void button_archiwum_Click(object sender, EventArgs e)
         {
+            string finalnyFiltr = "modyfikowano = true";
 
+            try
+            {
+                Form wyszukaneZabytki = new WyszukaneZabytki(finalnyFiltr);
+                wyszukaneZabytki.ShowDialog();
+                zabytkiBindingSource.Filter = "modyfikowano = false OR modyfikowano IS NULL";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd w filtrze: " + ex.Message);
+            }
         }
+            
 
         private void zabytkiBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
