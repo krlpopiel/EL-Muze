@@ -17,7 +17,7 @@ namespace EL_Muze.Forms
         String numer;
         String obiekt;
         String nr_rejestru;
-        DateTime data_wpisu;
+        DateTime data;
         String decyzja;
         public Zabytek()
         {
@@ -35,13 +35,13 @@ namespace EL_Muze.Forms
         {
             this.Validate();
             this.zabytkiBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.centrala_muzeumDataSet);
+            this.tableAdapterManager.UpdateAll(this.zabytkiDataSet);
 
         }
 
         private void Zabytek_Load(object sender, EventArgs e)
         {
-            this.zabytkiTableAdapter.Fill(this.centrala_muzeumDataSet.zabytki);
+            this.zabytkiTableAdapter.Fill(this.zabytkiDataSet.zabytki);
 
             if (id_zabytku == -1)
             {
@@ -50,12 +50,15 @@ namespace EL_Muze.Forms
             }
             else
             {
-                var znaleziony = this.centrala_muzeumDataSet.zabytki.FindByid(this.id_zabytku);
+                var znaleziony = this.zabytkiDataSet.zabytki.FindByid(this.id_zabytku);
                 if (znaleziony != null)
                 {
                     int index = this.zabytkiBindingSource.Find("id", this.id_zabytku);
                     if (index >= 0)
+                    {
                         this.zabytkiBindingSource.Position = index;
+                    }
+                        
                 }
             }
         }
@@ -64,12 +67,12 @@ namespace EL_Muze.Forms
         {
             try
             {
-                string ulica = ulicaTextBox.Text;
-                string numer = numerTextBox.Text;
-                string obiekt = obiektTextBox.Text;
-                string nr_rejestru = nr_rejestruTextBox.Text;
-                DateTime data = data_wpisuDateTimePicker.Value;
-                string decyzja = decyzjaTextBox.Text;
+                this.ulica = ulicaTextBox.Text;
+                this.numer = numerTextBox.Text;
+                this.obiekt = obiektTextBox.Text;
+                this.nr_rejestru = nr_rejestruTextBox.Text;
+                this.data = data_wpisuDateTimePicker.Value;
+                this.decyzja = decyzjaTextBox.Text;
 
                 if (string.IsNullOrWhiteSpace(obiekt))
                 {
@@ -77,13 +80,26 @@ namespace EL_Muze.Forms
                     return;
                 }
 
+                if (this.id_zabytku != -1) 
+                {
+                    var staryRekord = this.zabytkiDataSet.zabytki.FindByid(this.id_zabytku);
+
+                    if (staryRekord != null)
+                    {
+                        staryRekord.modyfikowano = true;
+                        staryRekord.EndEdit();
+                        this.zabytkiTableAdapter.Update(this.zabytkiDataSet.zabytki);
+                    }
+                }
+
                 this.zabytkiTableAdapter.Insert(
-                    ulica,
-                    numer,
-                    obiekt,
-                    nr_rejestru,
-                    data,
-                    decyzja
+                    this.ulica,
+                    this.numer,
+                    this.obiekt,
+                    this.nr_rejestru,
+                    this.data,
+                    this.decyzja,
+                    false
                 );
 
                 MessageBox.Show("Dodano pomyślnie.");
@@ -103,7 +119,15 @@ namespace EL_Muze.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ZapiszRecznie();
+            ZapiszRecznie(); //najbdardziej useless metoda ever, ale to wina abstrakcji xd
+        }
+
+        private void zabytkiBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.zabytkiBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.zabytkiDataSet);
+
         }
     }
 }

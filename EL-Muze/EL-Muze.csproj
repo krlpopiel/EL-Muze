@@ -57,6 +57,18 @@
     <Compile Include="Forms\Ekran_Powitalny.Designer.cs">
       <DependentUpon>Ekran_Powitalny.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\WyszukaneZabytki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WyszukaneZabytki.Designer.cs">
+      <DependentUpon>WyszukaneZabytki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WyszukiwanieZabytkow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WyszukiwanieZabytkow.Designer.cs">
+      <DependentUpon>WyszukiwanieZabytkow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Zabytek.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,11 +83,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="zabytkiDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>zabytkiDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\Ekran_Powitalny.resx">
       <DependentUpon>Ekran_Powitalny.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Przegladarka.resx">
       <DependentUpon>Przegladarka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WyszukaneZabytki.resx">
+      <DependentUpon>WyszukaneZabytki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WyszukiwanieZabytkow.resx">
+      <DependentUpon>WyszukiwanieZabytkow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Zabytek.resx">
       <DependentUpon>Zabytek.cs</DependentUpon>
@@ -109,6 +132,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="zabytkiDataSet.xsc">
+      <DependentUpon>zabytkiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="zabytkiDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>zabytkiDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="zabytkiDataSet.xss">
+      <DependentUpon>zabytkiDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

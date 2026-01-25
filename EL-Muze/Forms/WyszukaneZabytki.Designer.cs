@@ -1,6 +1,6 @@
 ﻿namespace EL_Muze.Forms
 {
-    partial class Zabytek
+    partial class WyszukaneZabytki
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zabytek));
-            System.Windows.Forms.Label idLabel;
-            System.Windows.Forms.Label ulicaLabel;
-            System.Windows.Forms.Label numerLabel;
-            System.Windows.Forms.Label obiektLabel;
-            System.Windows.Forms.Label nr_rejestruLabel;
-            System.Windows.Forms.Label data_wpisuLabel;
-            System.Windows.Forms.Label decyzjaLabel;
-            this.button_exit = new System.Windows.Forms.Button();
-            this.button_zapisz = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WyszukaneZabytki));
             this.zabytkiDataSet = new EL_Muze.zabytkiDataSet();
             this.zabytkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zabytkiTableAdapter = new EL_Muze.zabytkiDataSetTableAdapters.zabytkiTableAdapter();
@@ -56,52 +47,21 @@
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.zabytkiBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.idTextBox = new System.Windows.Forms.TextBox();
-            this.ulicaTextBox = new System.Windows.Forms.TextBox();
-            this.numerTextBox = new System.Windows.Forms.TextBox();
-            this.obiektTextBox = new System.Windows.Forms.TextBox();
-            this.nr_rejestruTextBox = new System.Windows.Forms.TextBox();
-            this.data_wpisuDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.decyzjaTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            idLabel = new System.Windows.Forms.Label();
-            ulicaLabel = new System.Windows.Forms.Label();
-            numerLabel = new System.Windows.Forms.Label();
-            obiektLabel = new System.Windows.Forms.Label();
-            nr_rejestruLabel = new System.Windows.Forms.Label();
-            data_wpisuLabel = new System.Windows.Forms.Label();
-            decyzjaLabel = new System.Windows.Forms.Label();
+            this.zabytkiDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiBindingNavigator)).BeginInit();
             this.zabytkiBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zabytkiDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button_exit
-            // 
-            this.button_exit.BackColor = System.Drawing.Color.Red;
-            this.button_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_exit.Location = new System.Drawing.Point(244, 321);
-            this.button_exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button_exit.Name = "button_exit";
-            this.button_exit.Size = new System.Drawing.Size(86, 35);
-            this.button_exit.TabIndex = 15;
-            this.button_exit.Text = "Zamknij";
-            this.button_exit.UseVisualStyleBackColor = false;
-            this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
-            // 
-            // button_zapisz
-            // 
-            this.button_zapisz.BackColor = System.Drawing.Color.Lime;
-            this.button_zapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_zapisz.Location = new System.Drawing.Point(11, 321);
-            this.button_zapisz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button_zapisz.Name = "button_zapisz";
-            this.button_zapisz.Size = new System.Drawing.Size(164, 35);
-            this.button_zapisz.TabIndex = 16;
-            this.button_zapisz.Text = "Zapisz zmiany";
-            this.button_zapisz.UseVisualStyleBackColor = false;
-            this.button_zapisz.Click += new System.EventHandler(this.button1_Click);
             // 
             // zabytkiDataSet
             // 
@@ -149,8 +109,8 @@
             this.zabytkiBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.zabytkiBindingNavigator.Name = "zabytkiBindingNavigator";
             this.zabytkiBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.zabytkiBindingNavigator.Size = new System.Drawing.Size(353, 25);
-            this.zabytkiBindingNavigator.TabIndex = 17;
+            this.zabytkiBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.zabytkiBindingNavigator.TabIndex = 0;
             this.zabytkiBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorMoveFirstItem
@@ -245,177 +205,110 @@
             this.zabytkiBindingNavigatorSaveItem.Name = "zabytkiBindingNavigatorSaveItem";
             this.zabytkiBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
             this.zabytkiBindingNavigatorSaveItem.Text = "Zapisz dane";
-            this.zabytkiBindingNavigatorSaveItem.Click += new System.EventHandler(this.zabytkiBindingNavigatorSaveItem_Click_1);
+            this.zabytkiBindingNavigatorSaveItem.Click += new System.EventHandler(this.zabytkiBindingNavigatorSaveItem_Click);
             // 
-            // idLabel
+            // zabytkiDataGridView
             // 
-            idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(40, 93);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(18, 13);
-            idLabel.TabIndex = 17;
-            idLabel.Text = "id:";
+            this.zabytkiDataGridView.AllowUserToAddRows = false;
+            this.zabytkiDataGridView.AllowUserToDeleteRows = false;
+            this.zabytkiDataGridView.AutoGenerateColumns = false;
+            this.zabytkiDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.zabytkiDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewCheckBoxColumn1});
+            this.zabytkiDataGridView.DataSource = this.zabytkiBindingSource;
+            this.zabytkiDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.zabytkiDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.zabytkiDataGridView.Name = "zabytkiDataGridView";
+            this.zabytkiDataGridView.ReadOnly = true;
+            this.zabytkiDataGridView.Size = new System.Drawing.Size(800, 425);
+            this.zabytkiDataGridView.TabIndex = 1;
             // 
-            // idTextBox
+            // dataGridViewTextBoxColumn1
             // 
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zabytkiBindingSource, "id", true));
-            this.idTextBox.Location = new System.Drawing.Point(107, 90);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(200, 20);
-            this.idTextBox.TabIndex = 18;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // ulicaLabel
+            // dataGridViewTextBoxColumn2
             // 
-            ulicaLabel.AutoSize = true;
-            ulicaLabel.Location = new System.Drawing.Point(40, 119);
-            ulicaLabel.Name = "ulicaLabel";
-            ulicaLabel.Size = new System.Drawing.Size(32, 13);
-            ulicaLabel.TabIndex = 19;
-            ulicaLabel.Text = "ulica:";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ulica";
+            this.dataGridViewTextBoxColumn2.HeaderText = "ulica";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // ulicaTextBox
+            // dataGridViewTextBoxColumn3
             // 
-            this.ulicaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zabytkiBindingSource, "ulica", true));
-            this.ulicaTextBox.Location = new System.Drawing.Point(107, 116);
-            this.ulicaTextBox.Name = "ulicaTextBox";
-            this.ulicaTextBox.Size = new System.Drawing.Size(200, 20);
-            this.ulicaTextBox.TabIndex = 20;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "numer";
+            this.dataGridViewTextBoxColumn3.HeaderText = "numer";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // numerLabel
+            // dataGridViewTextBoxColumn4
             // 
-            numerLabel.AutoSize = true;
-            numerLabel.Location = new System.Drawing.Point(40, 145);
-            numerLabel.Name = "numerLabel";
-            numerLabel.Size = new System.Drawing.Size(39, 13);
-            numerLabel.TabIndex = 21;
-            numerLabel.Text = "numer:";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "obiekt";
+            this.dataGridViewTextBoxColumn4.HeaderText = "obiekt";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // numerTextBox
+            // dataGridViewTextBoxColumn5
             // 
-            this.numerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zabytkiBindingSource, "numer", true));
-            this.numerTextBox.Location = new System.Drawing.Point(107, 142);
-            this.numerTextBox.Name = "numerTextBox";
-            this.numerTextBox.Size = new System.Drawing.Size(200, 20);
-            this.numerTextBox.TabIndex = 22;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "nr_rejestru";
+            this.dataGridViewTextBoxColumn5.HeaderText = "nr_rejestru";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // obiektLabel
+            // dataGridViewTextBoxColumn6
             // 
-            obiektLabel.AutoSize = true;
-            obiektLabel.Location = new System.Drawing.Point(40, 171);
-            obiektLabel.Name = "obiektLabel";
-            obiektLabel.Size = new System.Drawing.Size(39, 13);
-            obiektLabel.TabIndex = 23;
-            obiektLabel.Text = "obiekt:";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "data_wpisu";
+            this.dataGridViewTextBoxColumn6.HeaderText = "data_wpisu";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
-            // obiektTextBox
+            // dataGridViewTextBoxColumn7
             // 
-            this.obiektTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zabytkiBindingSource, "obiekt", true));
-            this.obiektTextBox.Location = new System.Drawing.Point(107, 168);
-            this.obiektTextBox.Name = "obiektTextBox";
-            this.obiektTextBox.Size = new System.Drawing.Size(200, 20);
-            this.obiektTextBox.TabIndex = 24;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "decyzja";
+            this.dataGridViewTextBoxColumn7.HeaderText = "decyzja";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
-            // nr_rejestruLabel
+            // dataGridViewCheckBoxColumn1
             // 
-            nr_rejestruLabel.AutoSize = true;
-            nr_rejestruLabel.Location = new System.Drawing.Point(40, 197);
-            nr_rejestruLabel.Name = "nr_rejestruLabel";
-            nr_rejestruLabel.Size = new System.Drawing.Size(56, 13);
-            nr_rejestruLabel.TabIndex = 25;
-            nr_rejestruLabel.Text = "nr rejestru:";
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "modyfikowano";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "modyfikowano";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
             // 
-            // nr_rejestruTextBox
-            // 
-            this.nr_rejestruTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zabytkiBindingSource, "nr_rejestru", true));
-            this.nr_rejestruTextBox.Location = new System.Drawing.Point(107, 194);
-            this.nr_rejestruTextBox.Name = "nr_rejestruTextBox";
-            this.nr_rejestruTextBox.Size = new System.Drawing.Size(200, 20);
-            this.nr_rejestruTextBox.TabIndex = 26;
-            // 
-            // data_wpisuLabel
-            // 
-            data_wpisuLabel.AutoSize = true;
-            data_wpisuLabel.Location = new System.Drawing.Point(40, 224);
-            data_wpisuLabel.Name = "data_wpisuLabel";
-            data_wpisuLabel.Size = new System.Drawing.Size(61, 13);
-            data_wpisuLabel.TabIndex = 27;
-            data_wpisuLabel.Text = "data wpisu:";
-            // 
-            // data_wpisuDateTimePicker
-            // 
-            this.data_wpisuDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.zabytkiBindingSource, "data_wpisu", true));
-            this.data_wpisuDateTimePicker.Location = new System.Drawing.Point(107, 220);
-            this.data_wpisuDateTimePicker.Name = "data_wpisuDateTimePicker";
-            this.data_wpisuDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.data_wpisuDateTimePicker.TabIndex = 28;
-            // 
-            // decyzjaLabel
-            // 
-            decyzjaLabel.AutoSize = true;
-            decyzjaLabel.Location = new System.Drawing.Point(40, 249);
-            decyzjaLabel.Name = "decyzjaLabel";
-            decyzjaLabel.Size = new System.Drawing.Size(46, 13);
-            decyzjaLabel.TabIndex = 29;
-            decyzjaLabel.Text = "decyzja:";
-            // 
-            // decyzjaTextBox
-            // 
-            this.decyzjaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zabytkiBindingSource, "decyzja", true));
-            this.decyzjaTextBox.Location = new System.Drawing.Point(107, 246);
-            this.decyzjaTextBox.Name = "decyzjaTextBox";
-            this.decyzjaTextBox.Size = new System.Drawing.Size(200, 20);
-            this.decyzjaTextBox.TabIndex = 30;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 20);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Wprowadź dane";
-            // 
-            // Zabytek
+            // WyszukaneZabytki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 376);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(idLabel);
-            this.Controls.Add(this.idTextBox);
-            this.Controls.Add(ulicaLabel);
-            this.Controls.Add(this.ulicaTextBox);
-            this.Controls.Add(numerLabel);
-            this.Controls.Add(this.numerTextBox);
-            this.Controls.Add(obiektLabel);
-            this.Controls.Add(this.obiektTextBox);
-            this.Controls.Add(nr_rejestruLabel);
-            this.Controls.Add(this.nr_rejestruTextBox);
-            this.Controls.Add(data_wpisuLabel);
-            this.Controls.Add(this.data_wpisuDateTimePicker);
-            this.Controls.Add(decyzjaLabel);
-            this.Controls.Add(this.decyzjaTextBox);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.zabytkiDataGridView);
             this.Controls.Add(this.zabytkiBindingNavigator);
-            this.Controls.Add(this.button_zapisz);
-            this.Controls.Add(this.button_exit);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Zabytek";
-            this.Text = "Zabytek";
-            this.Load += new System.EventHandler(this.Zabytek_Load);
+            this.Name = "WyszukaneZabytki";
+            this.Text = "WyszukaneZabytki";
+            this.Load += new System.EventHandler(this.WyszukaneZabytki_Load);
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiBindingNavigator)).EndInit();
             this.zabytkiBindingNavigator.ResumeLayout(false);
             this.zabytkiBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zabytkiDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button_exit;
-        private System.Windows.Forms.Button button_zapisz;
+
         private zabytkiDataSet zabytkiDataSet;
         private System.Windows.Forms.BindingSource zabytkiBindingSource;
         private zabytkiDataSetTableAdapters.zabytkiTableAdapter zabytkiTableAdapter;
@@ -433,13 +326,14 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton zabytkiBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox idTextBox;
-        private System.Windows.Forms.TextBox ulicaTextBox;
-        private System.Windows.Forms.TextBox numerTextBox;
-        private System.Windows.Forms.TextBox obiektTextBox;
-        private System.Windows.Forms.TextBox nr_rejestruTextBox;
-        private System.Windows.Forms.DateTimePicker data_wpisuDateTimePicker;
-        private System.Windows.Forms.TextBox decyzjaTextBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView zabytkiDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }
