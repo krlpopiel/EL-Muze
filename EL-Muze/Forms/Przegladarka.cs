@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace EL_Muze.Forms
 {
@@ -134,6 +135,77 @@ namespace EL_Muze.Forms
             this.zabytkiBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.zabytkiDataSet);
 
+        }
+
+        private void button_statystyki_Click(object sender, EventArgs e)
+        {
+            var tabela = this.zabytkiDataSet.zabytki;
+
+            if (tabela.Rows.Count == 0)
+            {
+                MessageBox.Show("Brak danych do obliczeń.");
+                return;
+            }
+
+            var wpisy = tabela
+                .Where(r => !r.IsNull("data_wpisu"))
+                .ToList();
+
+            if (wpisy.Count == 0)
+            {
+                MessageBox.Show("Brak wpisów z datą wpisu do rejestru.");
+                return;
+            }
+
+            int ilosc = tabela.Count;
+
+            var najstarszyWpis = wpisy.Min(r => r.data_wpisu);
+            var najnowszyWpis = wpisy.Max(r => r.data_wpisu);
+            int archiwalne = tabela.Count(row => !row.IsmodyfikowanoNull() && row.modyfikowano == true);
+            int aktualne = ilosc - archiwalne;
+            double procentArchiwum = ((double)archiwalne / ilosc) * 100;
+            double sredniWiekDni = wpisy.Average(r => (DateTime.Now - r.data_wpisu).TotalDays);
+            int sredniWiekLat = (int)(sredniWiekDni / 365);
+
+            string raport =
+                $"Łączna liczba wpisów: {ilosc}\n" +
+                $"Najstarszy wpis do rejestru: {najstarszyWpis.ToShortDateString()}\n" +
+                $"Najnowszy wpis do rejestru: {najnowszyWpis.ToShortDateString()}\n" +
+                $"Średnio zabytek jest w rejestrze od: {sredniWiekLat} lat\n" +
+                $"Aktualne wpisy: {aktualne}\n" +
+                $"Archiwalne (zmienione): {archiwalne}\n"+
+                $"Stopień modyfikacji bazy: {procentArchiwum:F2}%";
+
+            MessageBox.Show(raport, "Statystyki", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void button_top5_Click(object sender, EventArgs e)
+        {
+            var tabela = this.zabytkiDataSet.zabytki;
+
+            var topUlice = tabela
+                .Where(row => !row.IsulicaNull() && !string.IsNullOrWhiteSpace(row.ulica))
+                .GroupBy(row => row.ulica)
+                .Select(grupa => new { Ulica = grupa.Key, Liczba = grupa.Count() })
+                .OrderByDescending(x => x.Liczba)
+                .Take(5);
+
+            if (!topUlice.Any())
+            {
+                MessageBox.Show("Brak danych o ulicach.");
+                return;
+            }
+
+            string wynik = "Ulica (Liczba zabytków):\n\n";
+
+            int miejsce = 1;
+            foreach (var item in topUlice)
+            {
+                wynik += $"{miejsce}. {item.Ulica}: {item.Liczba}\n";
+                miejsce++;
+            }
+
+            MessageBox.Show(wynik, "Top 5 Ulic z zabytkami", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

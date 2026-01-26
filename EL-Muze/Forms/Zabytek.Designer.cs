@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zabytek));
             System.Windows.Forms.Label idLabel;
             System.Windows.Forms.Label ulicaLabel;
             System.Windows.Forms.Label numerLabel;
@@ -37,6 +36,7 @@
             System.Windows.Forms.Label nr_rejestruLabel;
             System.Windows.Forms.Label data_wpisuLabel;
             System.Windows.Forms.Label decyzjaLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zabytek));
             this.button_exit = new System.Windows.Forms.Button();
             this.button_zapisz = new System.Windows.Forms.Button();
             this.zabytkiDataSet = new EL_Muze.zabytkiDataSet();
@@ -44,17 +44,17 @@
             this.zabytkiTableAdapter = new EL_Muze.zabytkiDataSetTableAdapters.zabytkiTableAdapter();
             this.tableAdapterManager = new EL_Muze.zabytkiDataSetTableAdapters.TableAdapterManager();
             this.zabytkiBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.zabytkiBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.ulicaTextBox = new System.Windows.Forms.TextBox();
@@ -77,12 +77,75 @@
             this.zabytkiBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(40, 93);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(18, 13);
+            idLabel.TabIndex = 17;
+            idLabel.Text = "id:";
+            // 
+            // ulicaLabel
+            // 
+            ulicaLabel.AutoSize = true;
+            ulicaLabel.Location = new System.Drawing.Point(40, 119);
+            ulicaLabel.Name = "ulicaLabel";
+            ulicaLabel.Size = new System.Drawing.Size(32, 13);
+            ulicaLabel.TabIndex = 19;
+            ulicaLabel.Text = "ulica:";
+            // 
+            // numerLabel
+            // 
+            numerLabel.AutoSize = true;
+            numerLabel.Location = new System.Drawing.Point(40, 145);
+            numerLabel.Name = "numerLabel";
+            numerLabel.Size = new System.Drawing.Size(39, 13);
+            numerLabel.TabIndex = 21;
+            numerLabel.Text = "numer:";
+            // 
+            // obiektLabel
+            // 
+            obiektLabel.AutoSize = true;
+            obiektLabel.Location = new System.Drawing.Point(40, 171);
+            obiektLabel.Name = "obiektLabel";
+            obiektLabel.Size = new System.Drawing.Size(39, 13);
+            obiektLabel.TabIndex = 23;
+            obiektLabel.Text = "obiekt:";
+            // 
+            // nr_rejestruLabel
+            // 
+            nr_rejestruLabel.AutoSize = true;
+            nr_rejestruLabel.Location = new System.Drawing.Point(40, 197);
+            nr_rejestruLabel.Name = "nr_rejestruLabel";
+            nr_rejestruLabel.Size = new System.Drawing.Size(56, 13);
+            nr_rejestruLabel.TabIndex = 25;
+            nr_rejestruLabel.Text = "nr rejestru:";
+            // 
+            // data_wpisuLabel
+            // 
+            data_wpisuLabel.AutoSize = true;
+            data_wpisuLabel.Location = new System.Drawing.Point(40, 224);
+            data_wpisuLabel.Name = "data_wpisuLabel";
+            data_wpisuLabel.Size = new System.Drawing.Size(61, 13);
+            data_wpisuLabel.TabIndex = 27;
+            data_wpisuLabel.Text = "data wpisu:";
+            // 
+            // decyzjaLabel
+            // 
+            decyzjaLabel.AutoSize = true;
+            decyzjaLabel.Location = new System.Drawing.Point(40, 249);
+            decyzjaLabel.Name = "decyzjaLabel";
+            decyzjaLabel.Size = new System.Drawing.Size(46, 13);
+            decyzjaLabel.TabIndex = 29;
+            decyzjaLabel.Text = "decyzja:";
+            // 
             // button_exit
             // 
             this.button_exit.BackColor = System.Drawing.Color.Red;
             this.button_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button_exit.Location = new System.Drawing.Point(244, 321);
-            this.button_exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_exit.Margin = new System.Windows.Forms.Padding(2);
             this.button_exit.Name = "button_exit";
             this.button_exit.Size = new System.Drawing.Size(86, 35);
             this.button_exit.TabIndex = 15;
@@ -95,7 +158,7 @@
             this.button_zapisz.BackColor = System.Drawing.Color.Lime;
             this.button_zapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button_zapisz.Location = new System.Drawing.Point(11, 321);
-            this.button_zapisz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_zapisz.Margin = new System.Windows.Forms.Padding(2);
             this.button_zapisz.Name = "button_zapisz";
             this.button_zapisz.Size = new System.Drawing.Size(164, 35);
             this.button_zapisz.TabIndex = 16;
@@ -153,6 +216,31 @@
             this.zabytkiBindingNavigator.TabIndex = 17;
             this.zabytkiBindingNavigator.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorCountItem.Text = "z {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Suma elementów";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Usuń";
+            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -180,22 +268,16 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Pozycja";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Bieżąca pozycja";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(29, 15);
-            this.bindingNavigatorCountItem.Text = "z {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Suma elementów";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -203,7 +285,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Przenieś następny";
             // 
             // bindingNavigatorMoveLastItem
@@ -212,49 +294,22 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Przenieś ostatni";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
-            this.bindingNavigatorDeleteItem.Text = "Usuń";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // zabytkiBindingNavigatorSaveItem
             // 
             this.zabytkiBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.zabytkiBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("zabytkiBindingNavigatorSaveItem.Image")));
             this.zabytkiBindingNavigatorSaveItem.Name = "zabytkiBindingNavigatorSaveItem";
-            this.zabytkiBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.zabytkiBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.zabytkiBindingNavigatorSaveItem.Text = "Zapisz dane";
             this.zabytkiBindingNavigatorSaveItem.Click += new System.EventHandler(this.zabytkiBindingNavigatorSaveItem_Click_1);
-            // 
-            // idLabel
-            // 
-            idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(40, 93);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(18, 13);
-            idLabel.TabIndex = 17;
-            idLabel.Text = "id:";
             // 
             // idTextBox
             // 
@@ -264,15 +319,6 @@
             this.idTextBox.Size = new System.Drawing.Size(200, 20);
             this.idTextBox.TabIndex = 18;
             // 
-            // ulicaLabel
-            // 
-            ulicaLabel.AutoSize = true;
-            ulicaLabel.Location = new System.Drawing.Point(40, 119);
-            ulicaLabel.Name = "ulicaLabel";
-            ulicaLabel.Size = new System.Drawing.Size(32, 13);
-            ulicaLabel.TabIndex = 19;
-            ulicaLabel.Text = "ulica:";
-            // 
             // ulicaTextBox
             // 
             this.ulicaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zabytkiBindingSource, "ulica", true));
@@ -280,15 +326,6 @@
             this.ulicaTextBox.Name = "ulicaTextBox";
             this.ulicaTextBox.Size = new System.Drawing.Size(200, 20);
             this.ulicaTextBox.TabIndex = 20;
-            // 
-            // numerLabel
-            // 
-            numerLabel.AutoSize = true;
-            numerLabel.Location = new System.Drawing.Point(40, 145);
-            numerLabel.Name = "numerLabel";
-            numerLabel.Size = new System.Drawing.Size(39, 13);
-            numerLabel.TabIndex = 21;
-            numerLabel.Text = "numer:";
             // 
             // numerTextBox
             // 
@@ -298,15 +335,6 @@
             this.numerTextBox.Size = new System.Drawing.Size(200, 20);
             this.numerTextBox.TabIndex = 22;
             // 
-            // obiektLabel
-            // 
-            obiektLabel.AutoSize = true;
-            obiektLabel.Location = new System.Drawing.Point(40, 171);
-            obiektLabel.Name = "obiektLabel";
-            obiektLabel.Size = new System.Drawing.Size(39, 13);
-            obiektLabel.TabIndex = 23;
-            obiektLabel.Text = "obiekt:";
-            // 
             // obiektTextBox
             // 
             this.obiektTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zabytkiBindingSource, "obiekt", true));
@@ -314,15 +342,6 @@
             this.obiektTextBox.Name = "obiektTextBox";
             this.obiektTextBox.Size = new System.Drawing.Size(200, 20);
             this.obiektTextBox.TabIndex = 24;
-            // 
-            // nr_rejestruLabel
-            // 
-            nr_rejestruLabel.AutoSize = true;
-            nr_rejestruLabel.Location = new System.Drawing.Point(40, 197);
-            nr_rejestruLabel.Name = "nr_rejestruLabel";
-            nr_rejestruLabel.Size = new System.Drawing.Size(56, 13);
-            nr_rejestruLabel.TabIndex = 25;
-            nr_rejestruLabel.Text = "nr rejestru:";
             // 
             // nr_rejestruTextBox
             // 
@@ -332,15 +351,6 @@
             this.nr_rejestruTextBox.Size = new System.Drawing.Size(200, 20);
             this.nr_rejestruTextBox.TabIndex = 26;
             // 
-            // data_wpisuLabel
-            // 
-            data_wpisuLabel.AutoSize = true;
-            data_wpisuLabel.Location = new System.Drawing.Point(40, 224);
-            data_wpisuLabel.Name = "data_wpisuLabel";
-            data_wpisuLabel.Size = new System.Drawing.Size(61, 13);
-            data_wpisuLabel.TabIndex = 27;
-            data_wpisuLabel.Text = "data wpisu:";
-            // 
             // data_wpisuDateTimePicker
             // 
             this.data_wpisuDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.zabytkiBindingSource, "data_wpisu", true));
@@ -348,15 +358,6 @@
             this.data_wpisuDateTimePicker.Name = "data_wpisuDateTimePicker";
             this.data_wpisuDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.data_wpisuDateTimePicker.TabIndex = 28;
-            // 
-            // decyzjaLabel
-            // 
-            decyzjaLabel.AutoSize = true;
-            decyzjaLabel.Location = new System.Drawing.Point(40, 249);
-            decyzjaLabel.Name = "decyzjaLabel";
-            decyzjaLabel.Size = new System.Drawing.Size(46, 13);
-            decyzjaLabel.TabIndex = 29;
-            decyzjaLabel.Text = "decyzja:";
             // 
             // decyzjaTextBox
             // 
@@ -399,7 +400,7 @@
             this.Controls.Add(this.zabytkiBindingNavigator);
             this.Controls.Add(this.button_zapisz);
             this.Controls.Add(this.button_exit);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Zabytek";
             this.Text = "Zabytek";
             this.Load += new System.EventHandler(this.Zabytek_Load);
