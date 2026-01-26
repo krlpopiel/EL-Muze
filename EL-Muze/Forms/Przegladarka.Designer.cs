@@ -63,6 +63,8 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.button_statystyki = new System.Windows.Forms.Button();
+            this.button_top5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiBindingNavigator)).BeginInit();
@@ -74,7 +76,7 @@
             // 
             this.button_dodaj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_dodaj.BackColor = System.Drawing.Color.Lime;
-            this.button_dodaj.Location = new System.Drawing.Point(29, 280);
+            this.button_dodaj.Location = new System.Drawing.Point(20, 422);
             this.button_dodaj.Margin = new System.Windows.Forms.Padding(2);
             this.button_dodaj.Name = "button_dodaj";
             this.button_dodaj.Size = new System.Drawing.Size(139, 70);
@@ -87,7 +89,7 @@
             // 
             this.button_modyfikuj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_modyfikuj.BackColor = System.Drawing.Color.Yellow;
-            this.button_modyfikuj.Location = new System.Drawing.Point(196, 280);
+            this.button_modyfikuj.Location = new System.Drawing.Point(181, 422);
             this.button_modyfikuj.Margin = new System.Windows.Forms.Padding(2);
             this.button_modyfikuj.Name = "button_modyfikuj";
             this.button_modyfikuj.Size = new System.Drawing.Size(139, 70);
@@ -100,7 +102,7 @@
             // 
             this.button_usun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_usun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button_usun.Location = new System.Drawing.Point(354, 280);
+            this.button_usun.Location = new System.Drawing.Point(341, 423);
             this.button_usun.Margin = new System.Windows.Forms.Padding(2);
             this.button_usun.Name = "button_usun";
             this.button_usun.Size = new System.Drawing.Size(130, 70);
@@ -114,7 +116,7 @@
             this.button_wyjscie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_wyjscie.BackColor = System.Drawing.Color.Red;
             this.button_wyjscie.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_wyjscie.Location = new System.Drawing.Point(1087, 277);
+            this.button_wyjscie.Location = new System.Drawing.Point(1403, 426);
             this.button_wyjscie.Margin = new System.Windows.Forms.Padding(2);
             this.button_wyjscie.Name = "button_wyjscie";
             this.button_wyjscie.Size = new System.Drawing.Size(135, 70);
@@ -127,7 +129,7 @@
             // 
             this.button_pokaz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_pokaz.BackColor = System.Drawing.Color.Cyan;
-            this.button_pokaz.Location = new System.Drawing.Point(502, 280);
+            this.button_pokaz.Location = new System.Drawing.Point(490, 423);
             this.button_pokaz.Margin = new System.Windows.Forms.Padding(2);
             this.button_pokaz.Name = "button_pokaz";
             this.button_pokaz.Size = new System.Drawing.Size(141, 70);
@@ -140,7 +142,7 @@
             // 
             this.button_archiwum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_archiwum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button_archiwum.Location = new System.Drawing.Point(926, 280);
+            this.button_archiwum.Location = new System.Drawing.Point(1234, 426);
             this.button_archiwum.Name = "button_archiwum";
             this.button_archiwum.Size = new System.Drawing.Size(148, 67);
             this.button_archiwum.TabIndex = 7;
@@ -152,7 +154,7 @@
             // 
             this.button_szukaj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_szukaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button_szukaj.Location = new System.Drawing.Point(674, 280);
+            this.button_szukaj.Location = new System.Drawing.Point(636, 422);
             this.button_szukaj.Name = "button_szukaj";
             this.button_szukaj.Size = new System.Drawing.Size(134, 67);
             this.button_szukaj.TabIndex = 8;
@@ -206,7 +208,7 @@
             this.zabytkiBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.zabytkiBindingNavigator.Name = "zabytkiBindingNavigator";
             this.zabytkiBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.zabytkiBindingNavigator.Size = new System.Drawing.Size(1242, 25);
+            this.zabytkiBindingNavigator.Size = new System.Drawing.Size(1559, 25);
             this.zabytkiBindingNavigator.TabIndex = 9;
             this.zabytkiBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -326,7 +328,7 @@
             this.zabytkiDataGridView.DataSource = this.zabytkiBindingSource;
             this.zabytkiDataGridView.Location = new System.Drawing.Point(0, 28);
             this.zabytkiDataGridView.Name = "zabytkiDataGridView";
-            this.zabytkiDataGridView.Size = new System.Drawing.Size(1242, 220);
+            this.zabytkiDataGridView.Size = new System.Drawing.Size(1559, 363);
             this.zabytkiDataGridView.TabIndex = 9;
             // 
             // dataGridViewTextBoxColumn1
@@ -387,11 +389,37 @@
             this.dataGridViewCheckBoxColumn1.Visible = false;
             this.dataGridViewCheckBoxColumn1.Width = 81;
             // 
+            // button_statystyki
+            // 
+            this.button_statystyki.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_statystyki.BackColor = System.Drawing.Color.Silver;
+            this.button_statystyki.Location = new System.Drawing.Point(776, 422);
+            this.button_statystyki.Name = "button_statystyki";
+            this.button_statystyki.Size = new System.Drawing.Size(121, 65);
+            this.button_statystyki.TabIndex = 10;
+            this.button_statystyki.Text = "Pokaż statystyki wpisów";
+            this.button_statystyki.UseVisualStyleBackColor = false;
+            this.button_statystyki.Click += new System.EventHandler(this.button_statystyki_Click);
+            // 
+            // button_top5
+            // 
+            this.button_top5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_top5.BackColor = System.Drawing.Color.Silver;
+            this.button_top5.Location = new System.Drawing.Point(903, 422);
+            this.button_top5.Name = "button_top5";
+            this.button_top5.Size = new System.Drawing.Size(121, 65);
+            this.button_top5.TabIndex = 11;
+            this.button_top5.Text = "Top 5 ulic z największą ilością zabytków";
+            this.button_top5.UseVisualStyleBackColor = false;
+            this.button_top5.Click += new System.EventHandler(this.button_top5_Click);
+            // 
             // Przegladarka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1242, 371);
+            this.ClientSize = new System.Drawing.Size(1559, 514);
+            this.Controls.Add(this.button_top5);
+            this.Controls.Add(this.button_statystyki);
             this.Controls.Add(this.zabytkiDataGridView);
             this.Controls.Add(this.zabytkiBindingNavigator);
             this.Controls.Add(this.button_szukaj);
@@ -450,5 +478,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.Button button_statystyki;
+        private System.Windows.Forms.Button button_top5;
     }
 }
