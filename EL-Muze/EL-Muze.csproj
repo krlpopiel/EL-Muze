@@ -46,11 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="centrala_muzeumDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>centrala_muzeumDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Ekran_Powitalny.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,17 +107,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="centrala_muzeumDataSet.xsc">
-      <DependentUpon>centrala_muzeumDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="centrala_muzeumDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>centrala_muzeumDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="centrala_muzeumDataSet.xss">
-      <DependentUpon>centrala_muzeumDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
