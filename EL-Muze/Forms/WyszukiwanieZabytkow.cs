@@ -15,6 +15,13 @@ namespace EL_Muze.Forms
         public WyszukiwanieZabytkow()
         {
             InitializeComponent();
+            
+            idTextBox.TextChanged += (s, e) => { if (!string.IsNullOrWhiteSpace(idTextBox.Text)) checkBox1.Checked = true; };
+            ulicaTextBox.TextChanged += (s, e) => { if (!string.IsNullOrWhiteSpace(ulicaTextBox.Text)) checkBox2.Checked = true; };
+            numerTextBox.TextChanged += (s, e) => { if (!string.IsNullOrWhiteSpace(numerTextBox.Text)) checkBox3.Checked = true; };
+            obiektTextBox.TextChanged += (s, e) => { if (!string.IsNullOrWhiteSpace(obiektTextBox.Text)) checkBox4.Checked = true; };
+            nr_rejestruTextBox.TextChanged += (s, e) => { if (!string.IsNullOrWhiteSpace(nr_rejestruTextBox.Text)) checkBox5.Checked = true; };
+            decyzjaTextBox.TextChanged += (s, e) => { if (!string.IsNullOrWhiteSpace(decyzjaTextBox.Text)) checkBox8.Checked = true; };
         }
 
         private void WyszukiwanieZabytkow_Load(object sender, EventArgs e)
