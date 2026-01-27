@@ -56,6 +56,10 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.button_modyfikuj = new System.Windows.Forms.Button();
+            this.button_usun = new System.Windows.Forms.Button();
+            this.button_pokaz = new System.Windows.Forms.Button();
+            this.button_zamknij = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zabytkiBindingNavigator)).BeginInit();
@@ -223,11 +227,13 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewCheckBoxColumn1});
             this.zabytkiDataGridView.DataSource = this.zabytkiBindingSource;
-            this.zabytkiDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.zabytkiDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.zabytkiDataGridView.Location = new System.Drawing.Point(0, 25);
             this.zabytkiDataGridView.Name = "zabytkiDataGridView";
             this.zabytkiDataGridView.ReadOnly = true;
-            this.zabytkiDataGridView.Size = new System.Drawing.Size(800, 425);
+            this.zabytkiDataGridView.Size = new System.Drawing.Size(1000, 345);
             this.zabytkiDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -286,11 +292,68 @@
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             this.dataGridViewCheckBoxColumn1.ReadOnly = true;
             // 
+            // button_modyfikuj
+            // 
+            this.button_modyfikuj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_modyfikuj.BackColor = System.Drawing.Color.Yellow;
+            this.button_modyfikuj.Location = new System.Drawing.Point(20, 380);
+            this.button_modyfikuj.Margin = new System.Windows.Forms.Padding(2);
+            this.button_modyfikuj.Name = "button_modyfikuj";
+            this.button_modyfikuj.Size = new System.Drawing.Size(139, 70);
+            this.button_modyfikuj.TabIndex = 2;
+            this.button_modyfikuj.Text = "Modyfikuj zabytek";
+            this.button_modyfikuj.UseVisualStyleBackColor = false;
+            this.button_modyfikuj.Click += new System.EventHandler(this.button_modyfikuj_Click);
+            // 
+            // button_usun
+            // 
+            this.button_usun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_usun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button_usun.Location = new System.Drawing.Point(180, 380);
+            this.button_usun.Margin = new System.Windows.Forms.Padding(2);
+            this.button_usun.Name = "button_usun";
+            this.button_usun.Size = new System.Drawing.Size(130, 70);
+            this.button_usun.TabIndex = 3;
+            this.button_usun.Text = "Usuń zabytek";
+            this.button_usun.UseVisualStyleBackColor = false;
+            this.button_usun.Click += new System.EventHandler(this.button_usun_Click);
+            // 
+            // button_pokaz
+            // 
+            this.button_pokaz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_pokaz.BackColor = System.Drawing.Color.Cyan;
+            this.button_pokaz.Location = new System.Drawing.Point(330, 380);
+            this.button_pokaz.Margin = new System.Windows.Forms.Padding(2);
+            this.button_pokaz.Name = "button_pokaz";
+            this.button_pokaz.Size = new System.Drawing.Size(141, 70);
+            this.button_pokaz.TabIndex = 4;
+            this.button_pokaz.Text = "Pokaż szczegóły zabytku";
+            this.button_pokaz.UseVisualStyleBackColor = false;
+            this.button_pokaz.Click += new System.EventHandler(this.button_pokaz_Click);
+            // 
+            // button_zamknij
+            // 
+            this.button_zamknij.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_zamknij.BackColor = System.Drawing.Color.Red;
+            this.button_zamknij.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_zamknij.Location = new System.Drawing.Point(845, 380);
+            this.button_zamknij.Margin = new System.Windows.Forms.Padding(2);
+            this.button_zamknij.Name = "button_zamknij";
+            this.button_zamknij.Size = new System.Drawing.Size(135, 70);
+            this.button_zamknij.TabIndex = 5;
+            this.button_zamknij.Text = "Zamknij";
+            this.button_zamknij.UseVisualStyleBackColor = false;
+            this.button_zamknij.Click += new System.EventHandler(this.button_zamknij_Click);
+            // 
             // WyszukaneZabytki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1000, 470);
+            this.Controls.Add(this.button_zamknij);
+            this.Controls.Add(this.button_pokaz);
+            this.Controls.Add(this.button_usun);
+            this.Controls.Add(this.button_modyfikuj);
             this.Controls.Add(this.zabytkiDataGridView);
             this.Controls.Add(this.zabytkiBindingNavigator);
             this.Name = "WyszukaneZabytki";
@@ -335,5 +398,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.Button button_modyfikuj;
+        private System.Windows.Forms.Button button_usun;
+        private System.Windows.Forms.Button button_pokaz;
+        private System.Windows.Forms.Button button_zamknij;
     }
 }

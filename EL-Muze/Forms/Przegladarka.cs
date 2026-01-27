@@ -110,6 +110,7 @@ namespace EL_Muze.Forms
         {
             Form wyszukanie = new Forms.WyszukiwanieZabytkow();
             wyszukanie.ShowDialog();
+            odswiezDane();
         }
 
         private void button_archiwum_Click(object sender, EventArgs e)
