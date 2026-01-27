@@ -1,6 +1,6 @@
 # EL‑Muze
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt) ![Platforma: Windows](https://img.shields.io/badge/platform-Windows-lightgrey) ![Język: C#](https://img.shields.io/badge/language-C%23-blueviolet) ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.x-green) ![Wersja](https://img.shields.io/badge/version-1.0-orange)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt) ![Platforma: Windows](https://img.shields.io/badge/platform-Windows-lightgrey) ![Język: C#](https://img.shields.io/badge/language-C%23-blueviolet) ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.x-green) ![Wersja](https://img.shields.io/badge/version-1.2-orange)
 
 Spis treści
 - [Co robi projekt](#co-robi-projekt)
