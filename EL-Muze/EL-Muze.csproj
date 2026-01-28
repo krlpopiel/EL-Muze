@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ZabytkiController.cs" />
     <Compile Include="Forms\Ekran_Powitalny.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -7,22 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EL_Muze.Controllers;
 
 namespace EL_Muze.Forms
 {
     public partial class WyszukaneZabytki : Form
     {
+        private readonly ZabytkiController _controller;
         private string _przekazanyFiltr;
         private int id_zabytku;
 
         public WyszukaneZabytki()
         {
             InitializeComponent();
+            _controller = new ZabytkiController();
             _przekazanyFiltr = "";
         }
         public WyszukaneZabytki(string filtr)
         {
             InitializeComponent();
+            _controller = new ZabytkiController();
             this._przekazanyFiltr = filtr; 
         }
 
@@ -85,11 +89,11 @@ namespace EL_Muze.Forms
                 {
                     try
                     {
-                        zabytkiBindingSource.RemoveCurrent();
-
-                        zabytkiBindingSource.EndEdit();
-                        tableAdapterManager.UpdateAll(this.zabytkiDataSet);
-
+                        this.id_zabytku = ((int)((System.Data.DataRowView)this.zabytkiBindingSource.Current).Row["id"]);
+                        
+                        // Użyj kontrolera do usunięcia
+                        _controller.Usun(id_zabytku);
+                        
                         odswiezDane();
                     }
                     catch (Exception ex)
@@ -113,3 +117,4 @@ namespace EL_Muze.Forms
         }
     }
 }
+

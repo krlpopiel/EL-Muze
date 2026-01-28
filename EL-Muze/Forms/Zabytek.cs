@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EL_Muze.Controllers;
 
 namespace EL_Muze.Forms
 {
     public partial class Zabytek : Form
     {
+        private readonly ZabytkiController _controller;
         int id_zabytku;
         String ulica;
         String numer;
@@ -19,15 +21,18 @@ namespace EL_Muze.Forms
         String nr_rejestru;
         DateTime data;
         String decyzja;
+
         public Zabytek()
         {
             InitializeComponent();
+            _controller = new ZabytkiController();
             this.id_zabytku = -1;
         }
 
         public Zabytek(int id)
         {
             InitializeComponent();
+            _controller = new ZabytkiController();
             this.id_zabytku = id;
         }
 
@@ -80,30 +85,20 @@ namespace EL_Muze.Forms
                     return;
                 }
 
-                if (this.id_zabytku != -1) 
+                if (this.id_zabytku != -1)
                 {
-                    var staryRekord = this.zabytkiDataSet.zabytki.FindByid(this.id_zabytku);
-
-                    if (staryRekord != null)
-                    {
-                        staryRekord.modyfikowano = true;
-                        staryRekord.EndEdit();
-                        this.zabytkiTableAdapter.Update(this.zabytkiDataSet.zabytki);
-                    }
+                    // Użyj kontrolera do aktualizacji
+                    _controller.Aktualizuj(id_zabytku, ulica, numer, obiekt, nr_rejestru, data, decyzja);
+                    MessageBox.Show("Zaktualizowano pomyślnie.");
+                }
+                else
+                {
+                    // Użyj kontrolera do dodania
+                    _controller.Dodaj(ulica, numer, obiekt, nr_rejestru, data, decyzja);
+                    MessageBox.Show("Dodano pomyślnie.");
                 }
 
-                this.zabytkiTableAdapter.Insert(
-                    this.ulica,
-                    this.numer,
-                    this.obiekt,
-                    this.nr_rejestru,
-                    this.data,
-                    this.decyzja,
-                    false
-                );
-
-                MessageBox.Show("Dodano pomyślnie.");
-                this.Close(); 
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -119,7 +114,7 @@ namespace EL_Muze.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ZapiszRecznie(); //najbdardziej useless metoda ever, ale to wina abstrakcji xd
+            ZapiszRecznie();
         }
 
         private void zabytkiBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
@@ -131,3 +126,4 @@ namespace EL_Muze.Forms
         }
     }
 }
+

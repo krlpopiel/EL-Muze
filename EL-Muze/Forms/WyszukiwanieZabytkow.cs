@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EL_Muze.Controllers;
 
 namespace EL_Muze.Forms
 {
     public partial class WyszukiwanieZabytkow : Form
     {
+        private readonly ZabytkiController _controller;
+
         public WyszukiwanieZabytkow()
         {
             InitializeComponent();
+            _controller = new ZabytkiController();
             
             idTextBox.TextChanged += (s, e) => { if (!string.IsNullOrWhiteSpace(idTextBox.Text)) checkBox1.Checked = true; };
             ulicaTextBox.TextChanged += (s, e) => { if (!string.IsNullOrWhiteSpace(ulicaTextBox.Text)) checkBox2.Checked = true; };
@@ -31,56 +35,27 @@ namespace EL_Muze.Forms
 
         private void button_wyszukaj_Click(object sender, EventArgs e)
         {
-            List<string> warunki = new List<string>();
-
+            // Zbierz parametry wyszukiwania
+            int? id = null;
             if (checkBox1.Checked && !string.IsNullOrWhiteSpace(idTextBox.Text))
             {
-                warunki.Add(string.Format("id = {0}", idTextBox.Text));
+                if (int.TryParse(idTextBox.Text, out int parsedId))
+                    id = parsedId;
             }
 
-            if (checkBox2.Checked && !string.IsNullOrWhiteSpace(ulicaTextBox.Text))
+            string ulica = checkBox2.Checked && !string.IsNullOrWhiteSpace(ulicaTextBox.Text) ? ulicaTextBox.Text : null;
+            string numer = checkBox3.Checked && !string.IsNullOrWhiteSpace(numerTextBox.Text) ? numerTextBox.Text : null;
+            string obiekt = checkBox4.Checked && !string.IsNullOrWhiteSpace(obiektTextBox.Text) ? obiektTextBox.Text : null;
+            string nrRejestru = checkBox5.Checked && !string.IsNullOrWhiteSpace(nr_rejestruTextBox.Text) ? nr_rejestruTextBox.Text : null;
+            DateTime? dataOd = checkBox6.Checked ? data_wpisu_od_DateTimePicker.Value : (DateTime?)null;
+            DateTime? dataDo = checkBox7.Checked ? data_wpisu_do_DateTimePicker.Value : (DateTime?)null;
+            string decyzja = checkBox8.Checked && !string.IsNullOrWhiteSpace(decyzjaTextBox.Text) ? decyzjaTextBox.Text : null;
+
+            // Użyj kontrolera do zbudowania filtra
+            string finalnyFiltr = _controller.ZbudujFiltr(id, ulica, numer, obiekt, nrRejestru, dataOd, dataDo, decyzja);
+
+            if (!string.IsNullOrEmpty(finalnyFiltr))
             {
-                warunki.Add(string.Format("ulica LIKE '%{0}%'", ulicaTextBox.Text));
-            }
-
-            if (checkBox3.Checked && !string.IsNullOrWhiteSpace(numerTextBox.Text))
-            {
-                warunki.Add(string.Format("numer = '{0}'", numerTextBox.Text));
-            }
-
-            if (checkBox4.Checked && !string.IsNullOrWhiteSpace(obiektTextBox.Text))
-            {
-                warunki.Add(string.Format("obiekt LIKE '%{0}%'", obiektTextBox.Text));
-            }
-
-            if (checkBox5.Checked && !string.IsNullOrWhiteSpace(nr_rejestruTextBox.Text))
-            {
-                warunki.Add(string.Format("nr_rejestru LIKE '%{0}%'", nr_rejestruTextBox.Text));
-            }
-
-            if (checkBox6.Checked)
-            {
-                string dataOd = data_wpisu_od_DateTimePicker.Value.ToString("yyyy-MM-dd");
-
-                warunki.Add(string.Format("data_wpisu >= #{0}#", dataOd));
-            }
-
-            if (checkBox7.Checked)
-    {
-                string dataDo = data_wpisu_do_DateTimePicker.Value.ToString("yyyy-MM-dd");
-
-                warunki.Add(string.Format("data_wpisu <= #{0}#", dataDo));
-            }
-
-            if (checkBox8.Checked && !string.IsNullOrWhiteSpace(decyzjaTextBox.Text))
-            {
-                warunki.Add(string.Format("decyzja LIKE '%{0}%'", decyzjaTextBox.Text));
-            }
-
-            if (warunki.Count > 0)
-            {
-                string finalnyFiltr = string.Join(" AND ", warunki);
-
                 try
                 {
                     zabytkiBindingSource.Filter = finalnyFiltr;
@@ -105,3 +80,4 @@ namespace EL_Muze.Forms
         }
     }
 }
+
