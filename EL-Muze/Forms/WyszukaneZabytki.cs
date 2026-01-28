@@ -92,7 +92,7 @@ namespace EL_Muze.Forms
                         this.id_zabytku = ((int)((System.Data.DataRowView)this.zabytkiBindingSource.Current).Row["id"]);
                         
                         // Użyj kontrolera do usunięcia
-                        _controller.Usun(id_zabytku);
+                        _controller.OznaczJakoUsuniety(id_zabytku);
                         
                         odswiezDane();
                     }
