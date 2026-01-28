@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Linq;
+using EL_Muze.Controllers;
 
 namespace EL_Muze.Forms
 {
@@ -8,16 +9,17 @@ namespace EL_Muze.Forms
     {
         int id_zabytku;
         private bool _pokazArchiwalne;
+        private readonly ZabytkiController _controller;
 
         public Przegladarka(bool czyArchiwalne)
         {
             InitializeComponent();
+            _controller = new ZabytkiController();
             _pokazArchiwalne = czyArchiwalne;
             if (_pokazArchiwalne)
             {
                 this.Text = "Przeglądarka - Archiwum (Zmodyfikowane)";
                 button_modyfikuj.Enabled = false;
-                button_usun.Enabled = false;
                 button_dodaj.Enabled = false;
             }
         }
@@ -69,14 +71,24 @@ namespace EL_Muze.Forms
         {
             if (zabytkiBindingSource.Current != null)
             {
-                if (MessageBox.Show("Czy na pewno usunąć ten zabytek?", "Usuwanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                string komunikat = _pokazArchiwalne 
+                    ? "Czy na pewno TRWALE usunąć ten zabytek z archiwum?" 
+                    : "Czy na pewno przenieść ten zabytek do archiwum?";
+                
+                if (MessageBox.Show(komunikat, "Usuwanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     try
                     {
-                        zabytkiBindingSource.RemoveCurrent();
-
-                        zabytkiBindingSource.EndEdit();
-                        tableAdapterManager.UpdateAll(this.zabytkiDataSet);
+                        this.id_zabytku = ((int)((System.Data.DataRowView)this.zabytkiBindingSource.Current).Row["id"]);
+                        
+                        if (_pokazArchiwalne)
+                        {
+                            _controller.Usun(id_zabytku);
+                        }
+                        else
+                        {
+                            _controller.OznaczJakoUsuniety(id_zabytku);
+                        }
 
                         odswiezDane();
                     }

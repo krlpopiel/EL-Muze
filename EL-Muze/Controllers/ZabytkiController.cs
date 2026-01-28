@@ -160,5 +160,27 @@ namespace EL_Muze.Controllers
                 throw;
             }
         }
+
+        public bool OznaczJakoUsuniety(int id)
+        {
+            try
+            {
+                _tableAdapter.Fill(_dataSet.zabytki);
+                var rekord = _dataSet.zabytki.FindByid(id);
+
+                if (rekord != null)
+                {
+                    rekord.modyfikowano = true;
+                    _tableAdapter.Update(_dataSet.zabytki);
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
