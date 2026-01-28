@@ -1,6 +1,6 @@
 # EL‑Muze
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt) ![Platforma: Windows](https://img.shields.io/badge/platform-Windows-lightgrey) ![Język: C#](https://img.shields.io/badge/language-C%23-blueviolet) ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.x-green) ![Wersja](https://img.shields.io/badge/version-1.3-orange)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt) ![Platforma: Windows](https://img.shields.io/badge/platform-Windows-lightgrey) ![Język: C#](https://img.shields.io/badge/language-C%23-blueviolet) ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.x-green) ![Wersja](https://img.shields.io/badge/version-1.5-orange)
 
 Spis treści
 - [Co robi projekt](#co-robi-projekt)
@@ -15,8 +15,10 @@ Spis treści
 - [Utrzymanie i kontrybucje](#utrzymanie-i-kontrybucje)
 - [Licencja](#licencja)
 
+<img width="787" height="389" alt="MVC" src="https://github.com/user-attachments/assets/40d6b6b8-8663-436c-b01a-dcfb9221fbd6" />
+
 ## Co robi projekt
-EL‑Muze to aplikacja desktopowa napisana w C# (Windows Forms) do zarządzania rejestrem zabytków. Interfejs aplikacji jest w języku polskim. Aplikacja pozwala przeglądać, dodawać, modyfikować, wyszukiwać i archiwizować wpisy dotyczące obiektów zabytkowych zapisanych w bazie danych SQL Server.
+EL‑Muze to aplikacja desktopowa napisana w C# (Windows Forms) do zarządzania rejestrem elbląskich zabytków. Interfejs aplikacji jest w języku polskim. Aplikacja pozwala przeglądać, dodawać, modyfikować, wyszukiwać i archiwizować wpisy dotyczące obiektów zabytkowych zapisanych w bazie danych SQL Server.
 
 ## Dlaczego warto
 - Prosta, stacjonarna aplikacja do zarządzania rejestrem zabytków.
@@ -36,8 +38,6 @@ EL‑Muze to aplikacja desktopowa napisana w C# (Windows Forms) do zarządzania 
 - Visual Studio (zalecane) z obsługą projektów .NET Framework
 - .NET Framework 4.x (aplikacja wykorzystuje System.Windows.Forms)
 - SQL Server lub LocalDB (baza `zabytki`)
-
-Uwaga: Przeanalizowałem pliki projektu (m.in. `Program.cs`, pliki w `EL-Muze/Forms/`, `EL-Muze/Properties/Settings.Designer.cs`, `EL-Muze/zabytkiDataSet.Designer.cs`) — wyniki wyszukiwania mogą być niepełne. Aby zobaczyć wszystkie pliki, użyj wyszukiwania repozytorium: https://github.com/krlpopiel/EL-Muze/search
 
 ## Szybki start
 1. Sklonuj repozytorium:
