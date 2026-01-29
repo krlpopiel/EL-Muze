@@ -1,64 +1,70 @@
 # EL‑Muze
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt) ![Platforma: Windows](https://img.shields.io/badge/platform-Windows-lightgrey) ![Język: C#](https://img.shields.io/badge/language-C%23-blueviolet) ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.x-green) ![Wersja](https://img.shields.io/badge/version-1.6-orange)
+Table of Contents
 
-Spis treści
-- [Co robi projekt](#co-robi-projekt)
-- [Dlaczego warto](#dlaczego-warto)
-- [Najważniejsze funkcje](#najwazniejsze-funkcje)
-- [Wymagania](#wymagania)
-- [Szybki start](#szybki-start)
-- [Konfiguracja bazy danych](#konfiguracja-bazy-danych)
-- [Uruchamianie aplikacji](#uruchamianie-aplikacji)
-- [Struktura projektu — istotne pliki](#struktura-projektu--istotne-pliki)
-- [Gdzie szukać pomocy](#gdzie-szukac-pomocy)
-- [Utrzymanie i kontrybucje](#utrzymanie-i-kontrybucje)
-- [Licencja](#licencja)
+* [What the project does](https://www.google.com/search?q=%23what-the-project-does)
+* [Why it's worth it](https://www.google.com/search?q=%23why-its-worth-it)
+* [Key features](https://www.google.com/search?q=%23key-features)
+* [Requirements](https://www.google.com/search?q=%23requirements)
+* [Quick start](https://www.google.com/search?q=%23quick-start)
+* [Database configuration](https://www.google.com/search?q=%23database-configuration)
+* [Running the application](https://www.google.com/search?q=%23running-the-application)
+* [Project structure — relevant files](https://www.google.com/search?q=%23project-structure--relevant-files)
+* [Where to get help](https://www.google.com/search?q=%23where-to-get-help)
+* [Maintenance and contributions](https://www.google.com/search?q=%23maintenance-and-contributions)
+* [License](https://www.google.com/search?q=%23license)
 
 <img width="787" height="389" alt="MVC" src="https://github.com/user-attachments/assets/40d6b6b8-8663-436c-b01a-dcfb9221fbd6" />
 
-## Co robi projekt
-EL‑Muze to aplikacja desktopowa napisana w C# (Windows Forms) do zarządzania rejestrem elbląskich zabytków. Interfejs aplikacji jest w języku polskim. Aplikacja pozwala przeglądać, dodawać, modyfikować, wyszukiwać i archiwizować wpisy dotyczące obiektów zabytkowych zapisanych w bazie danych SQL Server.
+## What the project does
 
-## Dlaczego warto
-- Prosta, stacjonarna aplikacja do zarządzania rejestrem zabytków.
-- Wbudowane filtrowanie i wyszukiwanie z wieloma kryteriami.
-- Tryb archiwum (widok zmodyfikowanych wpisów).
-- Podstawowe statystyki (liczba wpisów, najstarszy/najnowszy wpis, procent archiwum).
-- Typowany DataSet ułatwia powiązanie kodu z tabelą bazy danych.
+EL‑Muze is a desktop application written in C# (Windows Forms) for managing the register of Elbląg monuments. The application interface is in Polish. The application allows viewing, adding, modifying, searching, and archiving entries regarding historical objects saved in an SQL Server database.
 
-## Najważniejsze funkcje
-- CRUD (Create / Read / Update / Delete) dla wpisów zabytków
-- Zaawansowane wyszukiwanie z wieloma warunkami
-- Widok archiwum (zapisane jako `modyfikowano = true`)
-- Raport statystyczny (wiek wpisów, top 5 ulic itp.)
+## Why it's worth it
 
-## Wymagania
-- System: Windows
-- Visual Studio (zalecane) z obsługą projektów .NET Framework
-- .NET Framework 4.x (aplikacja wykorzystuje System.Windows.Forms)
-- SQL Server lub LocalDB (baza `zabytki`)
+* Simple, desktop application for managing a register of monuments.
+* Built-in filtering and searching with multiple criteria.
+* Archive mode (view of modified entries).
+* Basic statistics (number of entries, oldest/newest entry, archive percentage).
+* Typed DataSet facilitates binding code to the database table.
 
-## Szybki start
-1. Sklonuj repozytorium:
-   git clone https://github.com/krlpopiel/EL-Muze.git
+## Key features
 
-2. Otwórz projekt/solucję w Visual Studio:
-   - Jeśli w repo jest plik `.sln`, otwórz go, w przeciwnym razie otwórz folder jako projekt.
+* CRUD (Create / Read / Update / Delete) for monument entries
+* Advanced search with multiple conditions
+* Archive view (saved as `modyfikowano = true`)
+* Statistical report (age of entries, top 5 streets, etc.)
 
-3. Skonfiguruj połączenie z bazą danych (patrz poniżej).
+## Requirements
 
-4. Zbuduj (Debug/Release) i uruchom aplikację (F5 w Visual Studio).
+* System: Windows
+* Visual Studio (recommended) with support for .NET Framework projects
+* .NET Framework 4.x (application uses System.Windows.Forms)
+* SQL Server or LocalDB (`zabytki` database)
 
-## Konfiguracja bazy danych
-Aplikacja korzysta z połączeń zapisanych w ustawieniach (Settings). Edytuj połączenia w:
-- EL‑Muze/Properties/Settings.settings lub `EL-Muze/Properties/Settings.Designer.cs`
+## Quick start
 
-Klucze połączeń używane w projekcie:
-- `centrala_muzeumConnectionString`
-- `zabytkiConnectionString`
+1. Clone the repository:
+git clone [https://github.com/krlpopiel/EL-Muze.git](https://github.com/krlpopiel/EL-Muze.git)
+2. Open the project/solution in Visual Studio:
+* If there is a `.sln` file in the repo, open it; otherwise, open the folder as a project.
 
-Przykładowa minimalna tabela kompatybilna z używanymi kolumnami:
+
+3. Configure the database connection (see below).
+4. Build (Debug/Release) and run the application (F5 in Visual Studio).
+
+## Database configuration
+
+The application uses connections saved in settings (Settings). Edit connections in:
+
+* EL‑Muze/Properties/Settings.settings or `EL-Muze/Properties/Settings.Designer.cs`
+
+Connection keys used in the project:
+
+* `centrala_muzeumConnectionString`
+* `zabytkiConnectionString`
+
+Example minimal table compatible with used columns:
 
 ```sql
 CREATE TABLE dbo.zabytki (
@@ -71,50 +77,59 @@ CREATE TABLE dbo.zabytki (
   decyzja NVARCHAR(255) NULL,
   modyfikowano BIT NULL
 );
+
 ```
 
-Ważne:
-- Dokładna struktura kolumn i typy znajdują się w `EL-Muze/zabytkiDataSet.Designer.cs` — jeśli wprowadzisz zmiany w schemacie, zaktualizuj typed DataSet w projekcie.
-- Dostosuj connection string do swojej instancji SQL Server (Integrated Security lub login/hasło).
+Important:
 
-## Uruchamianie aplikacji
-- W Visual Studio: Build → Run (F5).
-- Z pliku EXE: uruchom plik w `bin/Debug` lub `bin/Release`.
-- Aplikacja startuje w formie powitalnej (`Ekran_Powitalny`), następnie otwiera główną przeglądarkę (`Przegladarka`).
+* The exact column structure and types are located in `EL-Muze/zabytkiDataSet.Designer.cs` — if you make changes to the schema, update the typed DataSet in the project.
+* Adjust the connection string to your SQL Server instance (Integrated Security or login/password).
 
-Podstawowy przepływ (UI po polsku):
-- Dodaj nowy wpis → formularz `Zabytek`
-- Edytuj wpis → zaznacz rekord → modyfikuj (stary rekord może zostać oznaczony `modyfikowano = true`)
-- Wyszukuj → `WyszukiwanieZabytkow` → wyniki w `WyszukaneZabytki`
-- Archiwum → przycisk Archiwum w `Przegladarka`
-- Statystyki → przycisk Statystyki pokazuje raport
+## Running the application
 
-## Struktura projektu — istotne pliki
-- EL-Muze/Program.cs — punkt wejścia aplikacji
-- EL-Muze/Forms/
-  - Ekran_Powitalny.cs — ekran powitalny
-  - Przegladarka.cs — główny interfejs (lista, CRUD, statystyki)
-  - Zabytek.cs — formularz dodawania/edycji wpisu
-  - WyszukiwanieZabytkow.cs, WyszukaneZabytki.cs — mechanizm wyszukiwania
-- EL-Muze/zabytkiDataSet.Designer.cs — typed DataSet (schemat danych)
-- EL-Muze/Properties/Settings.Designer.cs — domyślne connection stringi
-- LICENSE.txt — licencja projektu
+* In Visual Studio: Build → Run (F5).
+* From EXE file: run the file in `bin/Debug` or `bin/Release`.
+* The application starts with a welcome screen (`Ekran_Powitalny`), then opens the main browser (`Przegladarka`).
+
+Basic flow (UI in Polish):
+
+* Add new entry → `Zabytek` form
+* Edit entry → select record → modify (old record may be marked `modyfikowano = true`)
+* Search → `WyszukiwanieZabytkow` → results in `WyszukaneZabytki`
+* Archive → Archive button in `Przegladarka`
+* Statistics → Statistics button shows report
+
+## Project structure — relevant files
+
+* EL-Muze/Program.cs — application entry point
+* EL-Muze/Forms/
+* Ekran_Powitalny.cs — welcome screen
+* Przegladarka.cs — main interface (list, CRUD, statistics)
+* Zabytek.cs — add/edit entry form
+* WyszukiwanieZabytkow.cs, WyszukaneZabytki.cs — search mechanism
+
+
+* EL-Muze/zabytkiDataSet.Designer.cs — typed DataSet (data schema)
+* EL-Muze/Properties/Settings.Designer.cs — default connection strings
+* https://www.google.com/search?q=LICENSE.txt — project license
 
 Relative links:
-- Licencja: LICENSE.txt
-- Ustawienia: EL-Muze/Properties/Settings.Designer.cs
-- Typed DataSet: EL-Muze/zabytkiDataSet.Designer.cs
-- Główny formularz: EL-Muze/Forms/Przegladarka.cs
 
-## Gdzie szukać pomocy
-- Zgłaszaj błędy i pytania poprzez Issues: https://github.com/krlpopiel/EL-Muze/issues
-- W przypadku pytań dotyczących schematu bazy danych sprawdź `EL-Muze/zabytkiDataSet.Designer.cs`.
-- Do dyskusji nad funkcjami lub większymi zmianami otwieraj Issues opisując proponowane zmiany.
+* License: https://www.google.com/search?q=LICENSE.txt
+* Settings: EL-Muze/Properties/Settings.Designer.cs
+* Typed DataSet: EL-Muze/zabytkiDataSet.Designer.cs
+* Main form: EL-Muze/Forms/Przegladarka.cs
 
-## Utrzymanie i kontrybucje
-Opiekun projektu: użytkownik GitHub `krlpopiel` — https://github.com/krlpopiel
+## Where to get help
 
-## Licencja
-Projekt udostępniony na licencji MIT — zobacz `LICENSE.txt`.
+* Report bugs and questions via Issues: [https://github.com/krlpopiel/EL-Muze/issues](https://github.com/krlpopiel/EL-Muze/issues)
+* For questions regarding the database schema, check `EL-Muze/zabytkiDataSet.Designer.cs`.
+* For discussions on features or major changes, open Issues describing the proposed changes.
 
----
+## Maintenance and contributions
+
+Project maintainer: GitHub user `krlpopiel` — [https://github.com/krlpopiel](https://github.com/krlpopiel)
+
+## License
+
+Project available under the MIT license — see `LICENSE.txt`.
